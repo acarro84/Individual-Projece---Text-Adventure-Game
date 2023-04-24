@@ -9,7 +9,7 @@ public class Player {
 		private int magic;
 		private int dexterity;
 		private int hearts;
-		ArrayList<String> availableClasses = new ArrayList<String>(Arrays.asList("Warrior", "Mage", "Archer")) ;
+//		ArrayList<String> availableClasses = new ArrayList<>(Arrays.asList("Warrior", "Mage", "Archer")) ;
 		
 		public Player() {
 			
@@ -69,5 +69,26 @@ public class Player {
 
 		public void setHearts(int hearts) {
 			this.hearts = hearts;
+		}
+		public String createWarrior() {
+			setPlayerClass("Warrior");
+			setStrength(10);
+			setMagic(3);
+			setDexterity(7);
+			return "You have chosen the Warrior class. \nStrength = 10\nMagic = 3\nDexterity = 7";
+		}
+		public String createMage() {
+			setPlayerClass("Mage");
+			setStrength(3);
+			setMagic(10);
+			setDexterity(7);
+			return "You have chosen the Mage class. \nStrength = 3\nMagic = 10\nDexterity = 7";
+		}
+		public String createArcher() {
+			setPlayerClass("Warrior");
+			setStrength(7);
+			setMagic(3);
+			setDexterity(10);
+			return "You have chosen the Warrior class. \nStrength = 7\nMagic = 3\nDexterity = 10";
 		}
 }
