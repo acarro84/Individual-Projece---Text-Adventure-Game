@@ -70,25 +70,33 @@ public class Player {
 		public void setHearts(int hearts) {
 			this.hearts = hearts;
 		}
-		public String createWarrior() {
-			setPlayerClass("Warrior");
-			setStrength(10);
-			setMagic(3);
-			setDexterity(7);
-			return "You have chosen the Warrior class. \nStrength = 10\nMagic = 3\nDexterity = 7";
+		public void createWarrior() {
+			this.setPlayerClass("Warrior");
+			this.setStrength(10);
+			this.setMagic(3);
+			this.setDexterity(7);
+			
 		}
-		public String createMage() {
-			setPlayerClass("Mage");
-			setStrength(3);
-			setMagic(10);
-			setDexterity(7);
-			return "You have chosen the Mage class. \nStrength = 3\nMagic = 10\nDexterity = 7";
+		public void createMage() {
+			this.setPlayerClass("Mage");
+			this.setStrength(3);
+			this.setMagic(10);
+			this.setDexterity(7);
+			
 		}
-		public String createArcher() {
-			setPlayerClass("Warrior");
-			setStrength(7);
-			setMagic(3);
-			setDexterity(10);
-			return "You have chosen the Warrior class. \nStrength = 7\nMagic = 3\nDexterity = 10";
+		public void createArcher() {
+			this.setPlayerClass("Archer");
+			this.setStrength(7);
+			this.setMagic(3);
+			this.setDexterity(10);
+			
 		}
+
+		@Override
+		public String toString() {
+			return "Character Sheet \nName=" + name + "\nClass=" + playerClass + "\nStrength=" + strength + "\nMagic="
+					+ magic + "\nDexterity=" + dexterity + "\nHearts=" + hearts ;
+		}
+		
+		
 }

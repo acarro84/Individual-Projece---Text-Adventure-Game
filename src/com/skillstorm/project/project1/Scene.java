@@ -6,64 +6,10 @@ public class Scene {
 	ArrayList<Scene> scenes = new ArrayList<>();
 	private int sceneNumber;
 	private String sceneSetup;
-	private String result;
+
 	private String battlePrompt;
-	
-	
-	public Scene () {
-		
-	}
-	public Scene (int sceneNumber, String sceneSetup, String result) {
-		this.setSceneNumber(sceneNumber);
-		this.setSceneSetup(sceneSetup);
-		this.setResult(result);
-		
-	}
-	
-	public String getBattlePrompt () {
-		return battlePrompt;
-	}
-	public void setBattlePrompt (String battlePrompt) {
-		this.battlePrompt = battlePrompt;
-	}
-	
-	public int getSceneNumber() {
-		return sceneNumber;
-	}
-	public void setSceneNumber(int sceneNumber) {
-		this.sceneNumber = sceneNumber;
-	}
-
-
-	public String getSceneSetup() {
-		return sceneSetup;
-	}
-	public void setSceneSetup(String sceneSetup) {
-		this.sceneSetup = sceneSetup;
-	}
-
-
-	public String getResult() {
-		return result;
-	}
-	public void setResult(String result) {
-		this.result = result;
-	}
-	
-	public void sceneArrive() {
-		
-	}
-	
-//	public String battle() {
-////		this.scen
-//	}
-	
-	public int nextScene() {
-//		current
-		return 0;
-	}
-
-
+	private String battleResultWin;
+	private String battleResultLose;
 	String awakening = "You awaken, groggy and confused in a deep forest among a clearing of trees. \n"
 			+ "At it's center is a large tree, seemingly as old as time itself. From behind the tree, \n"
 			+ "a tiny fairy named Navi appears...\n";
@@ -76,6 +22,10 @@ public class Scene {
 			+ "You are greeted by Darunia, the leader of the Gorons, who asks you to help deal with a problem in Dodongo's Cavern "
 			+ "that has been plaguing his people. In exchange, he offers a relic that he found deep inside Death Mountain. "
 			+ "Could this be one of the items you are searching for? You agree and arrive at the lair of the monster inside the cavern.";
+	String deathMountainBattlePrompt = "Choose how you will best the monster of the Lair\n1. Ready your sword and sheild and "
+			+ "charge at the Monster. You will be the better fighter today!\n2. Use your staff and summon a large ice shard "
+			+ "from the moat surrounding the monster.\n3. Use your arrows to hit the monsters bulging eyes, blinding him.\n"
+			+ "Choose 1, 2, or 3.";
 	String deathMountainWin = "You have bested the beast inside the cavern by using your strengths wisely. "
 			+ "Darunia is elated and hands you the relic: It's the Triforce!";
 	String zorasDomain = "Your next adventure finds you in Zora's Domain. "
@@ -83,6 +33,9 @@ public class Scene {
 			+ "Almost immediately, you notice a gloom about this place and see spiderwebs connecting every corner of the room. "
 			+ "In a dark hallway ahead, you can see the dark red glowing eyes. After a screech, a giant spider emerges from the darkness. "
 			+ "En garde!";
+	String zorasDomainBattlePrompt = "Choose how to dispatch the spider!\n1. Ram the spider with your sheild, pushing it off balance allowing "
+			+ "you to strike with your sword.\n2. Ignite the webs surrounding the spider with your staff, engulfing it in flames.\n3. "
+			+ "Shoot the large hanging chendelier over the spider, causing it to squish it like a bug.\nChoose 1, 2, or 3.";
 	String zorasDomainWin = "Great! You've bested that giant spider and managed to rescue Ruto who was cacooned in spiderwebs in the corner. "
 			+ "He thanks you and gives you the only thing he has left of any value: The Master Shield!";
 	String sacredRealm = "Your next destination is the Sacred Realm. "
@@ -109,10 +62,85 @@ public class Scene {
 			+ "\"You Cannot Skip This\""
 			+ "Out of the corner of your eye, you see Princess Zelda locked in a cage suspended above lava (for effect, of course). "
 			+ "You allow him to finish his monologue and charge into battle!";
-	String recueZelda = "You utilize the power hidden in the Master Sword and the Light Arrows to weaken and then defeat Ganon. "
+	String rescueZelda = "You utilize the power hidden in the Master Sword and the Light Arrows to weaken and then defeat Ganon. "
 			+ "Before he dies, he uses the rest of his power to bring the castle down around him. "
 			+ "You manage to escape with Princess Zelda and trap Ganon in the Sacred Realm. "
 			+ "Hyrule will know peace for the first time since you fell into your deep sleep. ";
+	String battleLose = "You have chosen a strategy that was...less than effective. You narrowly defeat your enemy and escape with your prize. It cost you a heart in the process.";
+	
+	Scene battle1 = new Scene(3, deathMountain, deathMountainBattlePrompt, deathMountainWin, battleLose );
+	Scene battle2 = new Scene(4, zorasDomain, "",  zorasDomainWin, battleLose);
+	Scene battle3 = new Scene(5, sacredRealm, "", sacredRealmWin, battleLose);
+	Scene battle4 = new Scene(6, templeOfTime, "", templeOfTimeWin, battleLose);
+	Scene finalBattle = new Scene(7, ganonsCastle, "",rescueZelda, battleLose);
+	
+	
+	public Scene () {
+		
+	}
+	public Scene (int sceneNumber, String sceneSetup, String battlePrompt, String battleResultWin, String battleResultLose) {
+		this.setSceneNumber(sceneNumber);
+		this.setSceneSetup(sceneSetup);
+		this.setSceneSetup(battlePrompt);
+		this.setBattleResultWin(battleResultWin);
+		this.setBattleResultLose(battleResultWin);
+		
+	}
+	
+	public String getBattlePrompt () {
+		return battlePrompt;
+	}
+	public void setBattlePrompt (String battlePrompt) {
+		this.battlePrompt = battlePrompt;
+	}
+	
+	public int getSceneNumber() {
+		return sceneNumber;
+	}
+	public void setSceneNumber(int sceneNumber) {
+		this.sceneNumber = sceneNumber;
+	}
+
+
+	public String getSceneSetup() {
+		return sceneSetup;
+	}
+	public void setSceneSetup(String sceneSetup) {
+		this.sceneSetup = sceneSetup;
+	}
+
+
+	public String getBattleResultWin() {
+		return battleResultWin;
+	}
+	public void setBattleResultWin(String result) {
+		this.battleResultWin = result;
+	}
+	public String getBattleResultLose() {
+		return battleResultLose;
+	}
+	public void setBattleResultLose(String result) {
+		this.battleResultLose = result;
+	}
+	
+	public void sceneArrive() {
+		
+	}
+	
+//	public String battle() {
+////		this.scen
+//	}
+	
+	public int nextScene() {
+//		current
+		return 0;
+	}
+
+
+	
+
+
+	
 	
 	
 	
