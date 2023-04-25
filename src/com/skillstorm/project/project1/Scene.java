@@ -42,13 +42,21 @@ public class Scene {
 			+ "As you arrive, you can see a pedestal with a glimmering light in the distance. "
 			+ "The whole realm seems to be suspended in space with only a narrow maze of paths zig-zagging through the air."
 			+ " After many careful steps (and a few monsters slain, of course), you arrive at the pedestal. "
-			+ "As you go to grab Part 3 of the Triforce, a blinding light stops you. It is Rauru, the Sage of Light. "
+			+ "As you go to grab the light arrows, they dissappear and a blinding light stops you. It is Rauru, the Sage of Light. "
 			+ "Before he will give you the Light Arrows, you must pass a trial to show that you are worthy to be the Hero of Light.";
+	String sacredRealmBattlePrompt = "For this trial, Raaru wants you to open the sealed door that now holds the arrows.\n1. "
+			+ "Try to use your strength to move the heavy pedestal on to the button in the corner to open the door.\n2. "
+			+ "Summon a large boulder with earth magic on top of the button to open the door.\n3. "
+			+ "Shoot an arrow at the switch on the ceiling, flooding a foot of water into the room and making the pedestal light "
+			+ "enough to be moved to the button.\nChoose 1, 2, or 3.";
 	String sacredRealmWin = "You've passed Rauru's trial. You walk up to the pedestal and grab the Light Arrows! On to your next journey!";
 	String templeOfTime = "You've found something in the forest: It's the Ocarina of Time! You play a tune that you remember faintly from your childhood. "
 			+ "Suddenly you are whisked away through time and end up in the Temple of Time. It's eerily quiet here. "
-			+ "There are no enemies. Only a large door. This must be the Door of Time that Navi was telling me about."
-			+ " But how could I possibly get in?";
+			+ "There are no enemies. Only a long path. This must be the Door of Time that Navi was telling me about."
+			+ " But how could I possibly get in? As you step forward, a pressure plate activates the temple, and large swinging axes oscillate back and forth along your path.";
+	String templeOfTimeBattlePrompt = "You must get through the path safely to the door. \n1. Use your strength and swordsmanship to cut each axe as it swings in front of you.\n"
+			+ "2. Stop time using time magic with your staff, allowing you to walk freely to the door.\n3. "
+			+ "Use your dexterity and nimbly dodge each axe as it swings, timing your moves carefully to get to the door.";
 	String templeOfTimeWin = "You've made it inside the door! Inside is a small room with many weapon racks. All of them are empty except one. "
 			+ "A sword rack in the corner with a lone sword resting in it. You walk up to the sword and grab it. "
 			+ "It hums in your hand and glows, lighting the whole room. In your head you hear an angelic voice say: "
