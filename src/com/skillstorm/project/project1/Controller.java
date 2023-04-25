@@ -1,136 +1,119 @@
 package com.skillstorm.project.project1;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
-import com.skillstorm.project.project1.Scene;
-import com.skillstorm.project.project1.Player;
+import java.util.Random;
+
+//import com.skillstorm.project.project1.Scene;
+//import com.skillstorm.project.project1.Player;
 public class Controller {
 
 	public static void main(String[] args) {
 		Controller game1 = new Controller();
 		game1.runGame();
-		
-		
 
 	}
-	Scene awakening = new Scene( 1, "You awaken, groggy and confused in a deep forest among a clearing of trees. \n"
-			+ "At it's center is a large tree, seemingly as old as time itself. From behind the tree, \n"
-			+ "a tiny fairy named Navi appears...\n", "" ,"","");
-	
-	Scene introduction = new Scene( 2, "...much has happened since you dissappeared 10 years ago. \n"
-			+ "Ganondorf, the evil wizard, has come to the land of Hyrule and is vying for power.\n"
-			+ "You must defeat him and rescue Princess Zelda. \n"
-			+ "Before you can defeat Ganondorf, you must find the Triforce, Light Arrows, Master Shield and the Master Sword. \n"
-			+ "Your journey begins here.\n", "","","");
-	String deathMountain = "You finally arrive at Death Mountain after a long walk. "
-			+ "You are greeted by Darunia, the leader of the Gorons, who asks you to help deal with a problem in Dodongo's Cavern "
-			+ "that has been plaguing his people. In exchange, he offers a relic that he found deep inside Death Mountain. "
-			+ "Could this be one of the items you are searching for? You agree and arrive at the lair of the monster inside the cavern.";
-	String deathMountainBattlePrompt = "Choose how you will best the monster of the Lair\n1. Ready your sword and sheild and "
-			+ "charge at the Monster. You will be the better fighter today!\n2. Use your staff and summon a large ice shard "
-			+ "from the moat surrounding the monster.\n3. Use your arrows to hit the monsters bulging eyes, blinding him.\n"
-			+ "Choose 1, 2, or 3.";
-	String deathMountainWin = "You have bested the beast inside the cavern by using your strengths wisely. "
-			+ "Darunia is elated and hands you the relic: It's the Triforce!";
-	String zorasDomain = "Your next adventure finds you in Zora's Domain. "
-			+ "You heard rumors during your travels that a piece of the Triforce might be in this area. "
-			+ "Almost immediately, you notice a gloom about this place and see spiderwebs connecting every corner of the room. "
-			+ "In a dark hallway ahead, you can see the dark red glowing eyes. After a screech, a giant spider emerges from the darkness. "
-			+ "En garde!";
-	String zorasDomainBattlePrompt = "Choose how to dispatch the spider!\n1. Ram the spider with your sheild, pushing it off balance allowing "
-			+ "you to strike with your sword.\n2. Ignite the webs surrounding the spider with your staff, engulfing it in flames.\n3. "
-			+ "Shoot the large hanging chendelier over the spider, causing it to squish it like a bug.\nChoose 1, 2, or 3.";
-	String zorasDomainWin = "Great! You've bested that giant spider and managed to rescue Ruto who was cacooned in spiderwebs in the corner. "
-			+ "He thanks you and gives you the only thing he has left of any value: The Master Shield!";
-	String sacredRealm = "Your next destination is the Sacred Realm. "
-			+ "As you arrive, you can see a pedestal with a glimmering light in the distance. "
-			+ "The whole realm seems to be suspended in space with only a narrow maze of paths zig-zagging through the air."
-			+ " After many careful steps (and a few monsters slain, of course), you arrive at the pedestal. "
-			+ "As you go to grab the light arrows, they dissappear and a blinding light stops you. It is Rauru, the Sage of Light. "
-			+ "Before he will give you the Light Arrows, you must pass a trial to show that you are worthy to be the Hero of Light.";
-	String sacredRealmBattlePrompt = "For this trial, Raaru wants you to open the sealed door that now holds the arrows.\n1. "
-			+ "Try to use your strength to move the heavy pedestal on to the button in the corner to open the door.\n2. "
-			+ "Summon a large boulder with earth magic on top of the button to open the door.\n3. "
-			+ "Shoot an arrow at the switch on the ceiling, flooding a foot of water into the room and making the pedestal light "
-			+ "enough to be moved to the button.\nChoose 1, 2, or 3.";
-	String sacredRealmWin = "You've passed Rauru's trial. You walk up to the pedestal and grab the Light Arrows! On to your next journey!";
-	String templeOfTime = "You've found something in the forest: It's the Ocarina of Time! You play a tune that you remember faintly from your childhood. "
-			+ "Suddenly you are whisked away through time and end up in the Temple of Time. It's eerily quiet here. "
-			+ "There are no enemies. Only a long path. This must be the Door of Time that Navi was telling me about."
-			+ " But how could I possibly get in? As you step forward, a pressure plate activates the temple, and large swinging axes oscillate back and forth along your path.";
-	String templeOfTimeBattlePrompt = "You must get through the path safely to the door. \n1. Use your strength and swordsmanship to cut each axe as it swings in front of you.\n"
-			+ "2. Stop time using time magic with your staff, allowing you to walk freely to the door.\n3. "
-			+ "Use your dexterity and nimbly dodge each axe as it swings, timing your moves carefully to get to the door.";
-	String templeOfTimeWin = "You've made it inside the door! Inside is a small room with many weapon racks. All of them are empty except one. "
-			+ "A sword rack in the corner with a lone sword resting in it. You walk up to the sword and grab it. "
-			+ "It hums in your hand and glows, lighting the whole room. In your head you hear an angelic voice say: "
-			+ "\"It's dangerous to go alone! Take This!\" You recieved the MASTER SWORD";
-	String ganonsCastle = "You travel to Ganon's Castle after acquiring the Triforce, Light Arrows, Master Shield and Master Sword. "
-			+ "You know you are now strong enough to take on Ganon and save Princess Zelda. "
-			+ "You travel deep into his castle, dispatching enemies as they appear. "
-			+ "Finally, you arrive at Ganondorf's throne room. "
-			+ "Ganondorf proceeds to go on a 20 minute rant about why he is evil and doing evil things. "
-			+ "You try to press the start button to skip all of the text but a message pops up in the corner. "
-			+ "\"You Cannot Skip This\""
-			+ "Out of the corner of your eye, you see Princess Zelda locked in a cage suspended above lava (for effect, of course). "
-			+ "You allow him to finish his monologue and charge into battle!";
-	String rescueZelda = "You utilize the power hidden in the Master Sword and the Light Arrows to weaken and then defeat Ganon. "
-			+ "Before he dies, he uses the rest of his power to bring the castle down around him. "
-			+ "You manage to escape with Princess Zelda and trap Ganon in the Sacred Realm. "
-			+ "Hyrule will know peace for the first time since you fell into your deep sleep. ";
-	String battleLose = "You have chosen a strategy that was...less than effective. You narrowly defeat your enemy and escape with your prize. It cost you a heart in the process.";
-	
-	Scene battle1 = new Scene(3, deathMountain, deathMountainBattlePrompt, deathMountainWin, battleLose );
-	Scene battle2 = new Scene(4, zorasDomain, "",  zorasDomainWin, battleLose);
-	Scene battle3 = new Scene(5, sacredRealm, "", sacredRealmWin, battleLose);
-	Scene battle4 = new Scene(6, templeOfTime, "", templeOfTimeWin, battleLose);
-	Scene finalBattle = new Scene(7, ganonsCastle, "",rescueZelda, battleLose);
-	
+
+	Scene awakening = new Scene(1, Scene.awakening,"", "", "");
+
+	Scene introduction = new Scene(2, Scene.introduction, "", "", "");
+
+	Scene battle1 = new Scene(3, Scene.deathMountain, Scene.deathMountainBattlePrompt, Scene.deathMountainWin,
+			Scene.battleLose);
+	Scene battle2 = new Scene(4, Scene.zorasDomain, Scene.zorasDomainBattlePrompt, Scene.zorasDomainWin,
+			Scene.battleLose);
+	Scene battle3 = new Scene(5, Scene.sacredRealm, Scene.sacredRealmBattlePrompt, Scene.sacredRealmWin,
+			Scene.battleLose);
+	Scene battle4 = new Scene(6, Scene.templeOfTime, Scene.templeOfTimeBattlePrompt, Scene.templeOfTimeWin,
+			Scene.battleLose);
+	Scene finalBattle = new Scene(7, Scene.ganonsCastle, "", Scene.rescueZelda, Scene.battleLose);
+
 	public void runGame() {
-		Scene currentScene = awakening;
-		System.out.println(awakening.getSceneSetup());
+		Scene currentScene = new Scene();
+		currentScene = awakening;
+//		System.out.println();
+		System.out.println(currentScene.getSceneSetup());
 		Player player1 = new Player();
 		player1.setHearts(5);
 		System.out.println("Hello, hero. Do you remember your name? \nEnter your name:");
 		Scanner in = new Scanner(System.in);
 		player1.setName(in.nextLine());
-		
-		System.out.println(player1.getName() + introduction.getSceneSetup());
-		System.out.println("First, let's refresh your memory of your fighting style.\n1. A strength-based Warrior weilding a sword and shield.\n2. A magic-based Mage with a magic infused staff. \n3. A nimble, dexterity-based Archer who specialized in bows. \nEnter 1, 2, or 3.");
-		
-		
+		currentScene = introduction;
+		System.out.println(player1.getName() + currentScene.getSceneSetup());
+		System.out.println(
+				"First, let's refresh your memory of your fighting style.\n1. A strength-based Warrior weilding a sword and shield.\n2. A magic-based Mage with a magic infused staff. \n3. A nimble, dexterity-based Archer who specialized in bows. \nEnter 1, 2, or 3.");
+
 		int classChoice = in.nextInt();
-		
-		
+
 //		while (player1.getClass().equals(null)) {
-			
-			if (classChoice != 1 &&classChoice != 2 && classChoice != 3) {
-				System.out.println("Please choose a valid selection.");
-			} if (classChoice == 1) {
-				player1.createWarrior();
-			} else if (classChoice == 2) {
-				player1.createMage();
-			} else if (classChoice == 3) {
-				player1.createArcher();
-			}
-		
-				
-		
+
+		if (classChoice != 1 && classChoice != 2 && classChoice != 3) {
+			System.out.println("Please choose a valid selection.");
+		}
+		if (classChoice == 1) {
+			player1.createWarrior();
+		} else if (classChoice == 2) {
+			player1.createMage();
+		} else if (classChoice == 3) {
+			player1.createArcher();
+		}
+
 //		}
 		System.out.println(player1);
-		
 
 		ArrayList<Scene> mainScenes = new ArrayList<>(4);
 		mainScenes.add(battle1);
 		mainScenes.add(battle2);
 		mainScenes.add(battle3);
 		mainScenes.add(battle4);
-		
-		while (player1.getHearts() > 0 && currentScene.getSceneNumber() <= 5) {
-			System.out.println(currentScene.getSceneSetup());
-			currentScene = currentScene.nextScene();
+		Collections.shuffle(mainScenes);
+
+		for (Scene current : mainScenes) {
+			currentScene = current;
+			if (player1.getHearts() > 0) {
+				System.out.println(currentScene.getSceneSetup());
+				System.out.println(currentScene.getBattlePrompt());
+				int battleSelection = in.nextInt();
+				if (battleSelection == 1)
+					if (player1.getStrength() < 10) {
+						System.out.println(currentScene.getBattleResultLose());
+						player1.setHearts(player1.getHearts() - 1);
+					} else {
+						System.out.println(currentScene.getBattleResultWin());
+					}
+				if (battleSelection == 2)
+					if (player1.getMagic() < 10) {
+						System.out.println(currentScene.getBattleResultLose());
+						player1.setHearts(player1.getHearts() - 1);
+					} else {
+						System.out.println(currentScene.getBattleResultWin());
+					}
+				if (battleSelection == 3)
+					if (player1.getDexterity() < 10) {
+						System.out.println(currentScene.getBattleResultLose());
+						player1.setHearts(player1.getHearts() - 1);
+					} else {
+						System.out.println(currentScene.getBattleResultWin());
+					}
+			} else
+				break;
 		}
-		
+		if (player1.getHearts() > 0) {
+			currentScene = finalBattle;
+			System.out.println(currentScene.getSceneSetup());
+			System.out.println(currentScene.getBattlePrompt());
+			int bossSelection = in.nextInt();
+			if (bossSelection == 1) {
+				System.out.println(currentScene.getBattleResultWin());
+				System.out.println();
+			} else {
+				System.out.println();
+			}
+
+		}
+
 		in.close();
 	}
-	
+
 }
